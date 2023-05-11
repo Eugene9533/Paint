@@ -2,11 +2,29 @@ import Rect from "./Rect";
 
 export default class Line extends Rect {
 
+    mouseUpHandler(e) {
+        this.mouseDown = false;
+        this.socket.send(JSON.stringify( {
+            method: "draw",
+            id: this.id,
+            figure: {
+                type: "line",
+                x: this.startX,
+                y: this.startY,
+                stx: this.currentX,
+                sty: this.currentY,
+                fill: this.ctx.fillStyle,
+                stroke: this.ctx.strokeStyle,
+                line: this.ctx.lineWidth
+            }
+        }));
+    }
+
     mouseMoveHandler(e) {
         if (this.mouseDown) {
-            let currentX = e.pageX - e.target.offsetLeft;
-            let currentY = e.pageY - e.target.offsetTop;
-            this.draw(this.startX, this.startY, currentX, currentY);
+            this.currentX = e.pageX - e.target.offsetLeft;
+            this.currentY = e.pageY - e.target.offsetTop;
+            this.draw(this.startX, this.startY, this.currentX, this.currentY);
         }
     }
 
@@ -21,5 +39,15 @@ export default class Line extends Rect {
             this.ctx.lineTo (x, y);
             this.ctx.stroke();
         }
+    }
+
+    static staticDrawLine(ctx, stx, sty, x, y, fill, stroke, line) {
+        ctx.fillStyle = fill;
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = line;
+        ctx.beginPath();
+        ctx.moveTo (stx, sty);
+        ctx.lineTo (x, y);
+        ctx.stroke();
     }
 }

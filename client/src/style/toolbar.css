@@ -1,5 +1,5 @@
 .toolbar {
-    height: 40px;
+    height: 50px;
     background-color: white;
     display: flex;
     align-items: center;
@@ -9,9 +9,9 @@
     z-index: 1;
 }
 
-.toolbar__btn {
-    height: 25px;
-    width: 25px;
+.toolbar__btn, #stroke-style {
+    height: 50px;
+    width: 50px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -24,6 +24,7 @@
 }
 .rect {
     background: url("../assets/img/rect.png") no-repeat center center;
+    background-size: 90%;
 }
 .circle {
     background: url("../assets/img/circle.png") no-repeat center center;
@@ -48,14 +49,11 @@
 }
 
 .setting-bar {
-    height: 40px;
-    background-color: white;
+    height: 100%;
+    margin-left: 100px;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
-    position: absolute;
-    width: 100%;
-    box-shadow: 0 4px 5px gray;
-    top: 40px;
 }
 
 .setting-bar label {
@@ -64,4 +62,10 @@
 
 .setting-bar input {
     margin: 0 10px;
+}
+
+#line-width {
+    font-size: 1.3rem;
+    height: 45px;
+    width: 45px;
 }
