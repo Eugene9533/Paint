@@ -19,6 +19,10 @@
     margin-left: 10px;
 }
 
+.select { 
+    box-shadow: 0 0 5px 0 black inset;
+}
+
 .brush {
     background: url("../assets/img/brush.png") no-repeat center center;
 }
@@ -40,12 +44,21 @@
     background: url("../assets/img/undo.png") no-repeat center center;
     margin-left: auto;
 }
+
+.undo:active, .redo:active, .save:active, .copy:active {
+    box-shadow: 0 0 5px 0 black inset;
+}
+
 .redo {
     background: url("../assets/img/redo.png") no-repeat center center;
 }
 .save {
     background: url("../assets/img/save.png") no-repeat center center;
     margin-right: 10px;
+}
+
+.copy {
+    background: url("../assets/img/link.png") no-repeat center center;
 }
 
 .setting-bar {
@@ -68,4 +81,17 @@
     font-size: 1.3rem;
     height: 45px;
     width: 45px;
+}
+
+.warningWindow {
+    background: white;
+    border: 1px solid;
+    display: block;
+    width: 250px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    left: 15px;
+    text-align: center;
 }
